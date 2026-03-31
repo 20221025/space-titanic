@@ -1,0 +1,11 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+
+df_test = pd.read_csv('test.csv')
+df_train = pd.read_csv('train.csv')
+df = df_train.merge(df_test, how='outer')
+df.tail()
+
+plot1 = plt.hist(df_train[df_train['Transported'] == True]['Age'],color='r')
+plot1 = plt.hist(df_train[df_train['Transported'] == False]['Age'],color='b')
+plt.show()
